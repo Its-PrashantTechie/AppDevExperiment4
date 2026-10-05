@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Node.js Web Server</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="brand"><span>&#9881;</span>NodeServer</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about" class="active">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>About this <mark>server</mark></h1>
+    <p>A minimal web server built for the Application Development laboratory.</p>
+  </section>
+
+  <main>
+    <h2>Available routes</h2>
+    <table>
+      <thead><tr><th>Route</th><th>Handled by</th><th>Response</th></tr></thead>
+      <tbody>
+        <tr><td><code>/</code></td><td>express.static</td><td>public/index.html</td></tr>
+        <tr><td><code>/about</code></td><td>app.get()</td><td>public/about.html</td></tr>
+        <tr><td><code>/contact</code></td><td>app.get()</td><td>public/contact.html</td></tr>
+        <tr><td><code>/about.html</code></td><td>express.static</td><td>public/about.html</td></tr>
+        <tr><td><code>/api/status</code></td><td>app.get()</td><td>JSON object</td></tr>
+        <tr><td>anything else</td><td>404 middleware</td><td>public/404.html</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="space-top">Start the server</h2>
+    <pre>npm install
+npm start
+# Server is running on http://localhost:3000</pre>
+  </main>
+
+  <footer>Served by Node.js + Express &middot; Prashant Sharma Dhungana (24AD130)</footer>
+</body>
+</html>

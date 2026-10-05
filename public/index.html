@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Node.js Web Server</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="brand"><span>&#9881;</span>NodeServer</a>
+      <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>A web server written in <mark>Node.js</mark> and Express</h1>
+    <p>This page is a plain HTML file delivered by an Express server using <code>express.static()</code>.</p>
+    <div class="terminal">
+      <div class="terminal-bar"><i></i><i></i><i></i></div>
+      <pre>$ npm install
+$ npm start
+Server is running on http://localhost:3000</pre>
+    </div>
+  </section>
+
+  <main>
+    <div class="grid">
+      <div class="card"><h3>Static Files</h3><p>HTML, CSS and images are served straight from the <code>public</code> folder.</p></div>
+      <div class="card"><h3>Clean Routes</h3><p><code>/about</code> and <code>/contact</code> are mapped to HTML files with <code>res.sendFile()</code>.</p></div>
+      <div class="card"><h3>JSON API</h3><p><code>/api/status</code> returns live server information as JSON.</p></div>
+    </div>
+
+    <div class="status card">
+      <div class="status-head">
+        <h3>Live server status</h3>
+        <button type="button" id="refresh">Refresh</button>
+      </div>
+      <pre id="status">Loading...</pre>
+    </div>
+  </main>
+
+  <script>
+    const box = document.getElementById("status");
+
+    function loadStatus() {
+      box.textContent = "Loading...";
+      fetch("/api/status")
+        .then((r) => r.json())
+        .then((d) => (box.textContent = JSON.stringify(d, null, 2)))
+        .catch(() => (box.textContent = "Could not reach /api/status"));
+    }
+
+    document.getElementById("refresh").addEventListener("click", loadStatus);
+    loadStatus();
+  </script>
+
+  <footer>Served by Node.js + Express &middot; Prashant Sharma Dhungana (24AD130)</footer>
+</body>
+</html>

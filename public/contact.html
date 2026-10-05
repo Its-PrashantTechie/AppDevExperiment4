@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Node.js Web Server</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="brand"><span>&#9881;</span>NodeServer</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Get in <mark>touch</mark></h1>
+    <p>AIDS, KPRIET.</p>
+  </section>
+
+  <main>
+    <div class="grid two-col">
+      <div class="card">
+        <h3>Details</h3>
+        <p><strong>Name:</strong> Prashant Sharma Dhungana</p>
+        <p><strong>Roll No:</strong> 24AD130</p>
+       <p><strong>GitHub:</strong> <a href="https://github.com/Its-PrashantTechie/">github.com/Its-PrashantTechie</a></p>
+        <p><strong>Location:</strong> Coimbatore, Tamil Nadu</p>
+      </div>
+      <div class="card">
+        <h3>Send a message</h3>
+        <form id="contactForm">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <textarea rows="3" placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Demo form: nothing is sent anywhere, it only shows a confirmation
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      e.target.innerHTML = "<p>Thanks! This demo form is static.</p>";
+    });
+  </script>
+
+  <footer>Served by Node.js + Express &middot; Prashant Sharma Dhungana (24AD130)</footer>
+</body>
+</html>

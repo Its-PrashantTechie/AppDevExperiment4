@@ -1,0 +1,15 @@
+{
+  "name": "basic-node-web-server",
+  "version": "1.0.0",
+  "description": "A basic web server developed with Node.js and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "author": "Prashant Sharma Dhungana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
